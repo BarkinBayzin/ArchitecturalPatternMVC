@@ -101,7 +101,7 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2022, 8, 31, 12, 24, 22, 713, DateTimeKind.Local).AddTicks(942),
+                            CreateDate = new DateTime(2022, 9, 1, 10, 23, 3, 753, DateTimeKind.Local).AddTicks(9804),
                             Password = "1234",
                             Status = 1,
                             Username = "bayzin"

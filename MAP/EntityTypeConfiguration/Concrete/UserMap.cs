@@ -16,7 +16,7 @@ namespace MAP.EntityTypeConfiguration.Concrete
             builder.Property(x => x.Username).HasMaxLength(20).IsRequired();
             builder.Property(x => x.Password).HasMaxLength(10).IsRequired();
 
-            //builder.HasData(new User { Username = "bayzin", Password = "1234",Id = 1 });
+          // builder.HasData(new User { Username = "bayzin", Password = "1234",Id = 1 });
 
             base.Configure(builder);
         }

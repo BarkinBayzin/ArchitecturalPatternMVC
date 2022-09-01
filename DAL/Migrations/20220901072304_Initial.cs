@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DAL.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -55,7 +55,7 @@ namespace DAL.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "CreateDate", "DeleteDate", "Password", "Status", "UpdateDate", "Username" },
-                values: new object[] { 1, new DateTime(2022, 8, 31, 12, 24, 22, 713, DateTimeKind.Local).AddTicks(942), null, "1234", 1, null, "bayzin" });
+                values: new object[] { 1, new DateTime(2022, 9, 1, 10, 23, 3, 753, DateTimeKind.Local).AddTicks(9804), null, "1234", 1, null, "bayzin" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Articles_AuthorId",

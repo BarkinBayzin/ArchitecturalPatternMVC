@@ -23,7 +23,7 @@ namespace DAL.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=.;Database=ArchitecturalDb;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("server=.\\SQLEXPRESS;Database=ArchitecturalDb;Trusted_Connection=True;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
