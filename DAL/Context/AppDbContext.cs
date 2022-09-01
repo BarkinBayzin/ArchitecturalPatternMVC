@@ -11,7 +11,7 @@ namespace DAL.Context
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext()/*DbContextOptions<AppDbContext> options) : base(options)*/
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
             //.Net'te burada connection strinfg ifademizi yazıyorduk. Artık burada connection string yazılmayacak.
 
@@ -21,10 +21,10 @@ namespace DAL.Context
 
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("server=.\\SQLEXPRESS;Database=ArchitecturalDb;Trusted_Connection=True;");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("server=.\\SQLEXPRESS;Database=ArchitecturalDb;Trusted_Connection=True;");
+        //}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ArticleMap());

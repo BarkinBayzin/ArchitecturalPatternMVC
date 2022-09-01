@@ -12,9 +12,9 @@ namespace ENTITIES.Entity.Concrete
     [Table("Users")]
     public class User :BaseEntity
     {
-        [Required]
+        [Required(ErrorMessage = "Kullanıcı Adı Boş Bırakılamaz")]        
         public string Username { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Şifre Boş Bırakılamaz")]
         public string Password { get; set; }
     }
 }

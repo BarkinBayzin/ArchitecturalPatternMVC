@@ -9,15 +9,15 @@ namespace BLL.DesignPatterns.SingletonPattern
 {
     public class DBTool
     {
-        static AppDbContext _dbInstance;
+    //    static AppDbContext _dbInstance;
 
-        public static AppDbContext DbInstance 
-        {
-            get
-            {
-                if (_dbInstance == null) _dbInstance = new AppDbContext();
-                return _dbInstance;
-            }
-        }
+    //    public static AppDbContext DbInstance 
+    //    {
+    //        get
+    //        {
+    //            if (_dbInstance == null) _dbInstance = new AppDbContext();
+    //            return _dbInstance;
+    //        }
+    //    }
     }
 }

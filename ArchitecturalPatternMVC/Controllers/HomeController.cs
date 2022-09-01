@@ -1,4 +1,7 @@
-﻿using ArchitecturalPatternMVC.Models;
+﻿using ArchitecturalPatternMVC.Filters;
+using ArchitecturalPatternMVC.Models;
+using BLL.DesignPatterns.GenericRepositoryPattern.IntRep;
+using ENTITIES.Entity.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -9,17 +12,20 @@ using System.Threading.Tasks;
 
 namespace ArchitecturalPatternMVC.Controllers
 {
+    [LoggedUser]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IGenericRepository<User> _genericRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IGenericRepository<User> genericRepository)
         {
+            _genericRepository = genericRepository;
             _logger = logger;
-        }
-
+        }        
         public IActionResult Index()
         {
+            var list = _genericRepository.GetAll();
             return View();
         }
 

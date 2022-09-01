@@ -1,8 +1,10 @@
-using BLL.DesignPatterns.GenericRepositoryPattern.BaseRep;
+﻿using BLL.DesignPatterns.GenericRepositoryPattern.BaseRep;
 using BLL.DesignPatterns.GenericRepositoryPattern.IntRep;
+using DAL.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,6 +29,14 @@ namespace ArchitecturalPatternMVC
         {
             services.AddControllersWithViews();
 
+            // Session kullanmak için öncelikle projeye session ekliyoruz.
+            services.AddSession();
+
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("conStr"));
+            });
+
             services.AddScoped(typeof(IGenericRepository<>), typeof(BaseRepository<>));
         }
 
@@ -49,6 +59,9 @@ namespace ArchitecturalPatternMVC
             app.UseRouting();
 
             app.UseAuthorization();
+
+            //Projemöe eklediğim Session'ı kullanabilme beceresini Framework'un aktif etmesini istiyoruz.
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
