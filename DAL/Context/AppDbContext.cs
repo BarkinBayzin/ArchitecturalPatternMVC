@@ -29,6 +29,9 @@ namespace DAL.Context
         {
             modelBuilder.ApplyConfiguration(new ArticleMap());
             modelBuilder.ApplyConfiguration(new UserMap());
+
+            modelBuilder.Entity<Article>().HasOne(a => a.Author).WithMany(u => u.Articles).HasForeignKey(u => u.AuthorId);
+
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<User> Users { get; set; }

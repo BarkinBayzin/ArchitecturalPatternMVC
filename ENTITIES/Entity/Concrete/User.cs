@@ -16,5 +16,7 @@ namespace ENTITIES.Entity.Concrete
         public string Username { get; set; }
         [Required(ErrorMessage = "Şifre Boş Bırakılamaz")]
         public string Password { get; set; }
+
+        public List<Article> Articles { get; set; }
     }
 }

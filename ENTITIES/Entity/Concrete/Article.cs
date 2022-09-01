@@ -23,10 +23,25 @@ namespace ENTITIES.Entity.Concrete
         [Required]
         public DateTime CreatedTime { get; set; } = DateTime.Now;
 
-        [ForeignKey("Author")]
+        public string GetContentSummary()
+        {
+            int limit = 300;
+            string summary = string.Empty;
+
+            if (Content.Length >= limit)
+            {
+                summary = string.Format("{0}...", Content.Substring(0, limit));
+            }
+            else
+                summary = Content;
+
+            return summary;
+        }
+
+        //[ForeignKey("Author")]
         public int AuthorId { get; set; }
 
-        [Required]
+        //[Required]
         public User Author { get; set; }
 
     }
